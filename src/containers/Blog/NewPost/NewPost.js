@@ -10,6 +10,10 @@ class NewPost extends Component {
         author: 'Max',
         submitted : false
     }
+    componentDidMount(){
+        // Below is also a guard guard
+        // if unauth => this.props.history.replace()
+    }
     postDataHandler = () =>{
         const mypost ={
             title : this.state.title,
@@ -19,9 +23,17 @@ class NewPost extends Component {
         axios.post('https://jsonplaceholder.typicode.com/posts',mypost)
             .then(request => {
                 //console.log(request);
-                this.setState({
-                    submitted : true
-                })
+                // this.setState({
+                //     submitted : true
+                // })
+                // Below is push method of history prop that pushes the page on browser page stack
+                
+                //this.props.history.push('/posts');
+
+                // Below is replace method which replaces the current page with its own and its same as redirect
+                //Redirect also replaces the current page in browser page stack
+
+                this.props.history.replace('/posts');
             })
     }
     render () {
