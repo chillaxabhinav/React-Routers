@@ -11,7 +11,7 @@ class NewPost extends Component {
         submitted : false
     }
     componentDidMount(){
-        // Below is also a guard guard
+        // Below is also a guard
         // if unauth => this.props.history.replace()
     }
     postDataHandler = () =>{
